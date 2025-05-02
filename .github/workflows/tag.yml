@@ -14,8 +14,6 @@ jobs:
     needs: validate
     timeout-minutes: 9
     runs-on: ubuntu-22.04
-    env:
-      PUBLISH_TOKEN: ${{secrets.PACKAGES_PUBLISH_TOKEN}}
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -34,10 +32,3 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
           npm publish
-
-      - name: github release
-        run: |
-          npm config set '//npm.pkg.github.com/:_authToken' "${PUBLISH_TOKEN}"
-          npm publish --scope=@translated --registry=https://npm.pkg.github.com/
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
