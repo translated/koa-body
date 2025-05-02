@@ -1,6 +1,6 @@
 {
   "name": "@translated/koa-body",
-  "version": "6.0.1-security-2",
+  "version": "6.0.1-security-3",
   "description": "A Koa body parser middleware. Supports multipart, urlencoded and JSON request bodies.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -10,6 +10,9 @@
     "README.md",
     "package.json"
   ],
+  "publishConfig": {
+    "access": "restricted"
+  },
   "scripts": {
     "build": "npm run check-format && npm run test && npm run clean && npm run build:typescript",
     "build:typescript": "tsc --build tsconfig.build.json",
