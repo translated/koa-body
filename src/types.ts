@@ -12,7 +12,7 @@ export enum HttpMethodEnum {
   HEAD = 'HEAD',
 }
 
-const HttpMethod = z.nativeEnum(HttpMethodEnum);
+const HttpMethod = z.enum(HttpMethodEnum);
 export type HttpMethod = z.infer<typeof HttpMethod>;
 
 export type ExtendedFormidableOptions = FormidableOptions & {
@@ -25,52 +25,52 @@ export const KoaBodyMiddlewareOptionsSchema = z.object({
    *
    * Note: You can patch request body to Node or Koa in same time if you want.
    */
-  patchNode: z.boolean().optional().default(false),
+  patchNode: z.boolean().default(false),
   /**
    * {Boolean} Patch request body to Koa's ctx.request, default true
    *
    * Note: You can patch request body to Node or Koa in same time if you want.
    */
-  patchKoa: z.boolean().optional().default(true),
+  patchKoa: z.boolean().default(true),
   /**
    * {String|Integer} The byte (if integer) limit of the JSON body, default 1mb
    */
-  jsonLimit: z.union([z.string(), z.number()]).optional().default('1mb'),
+  jsonLimit: z.union([z.string(), z.number()]).default('1mb'),
   /**
    * {String|Integer} The byte (if integer) limit of the form body, default 56kb
    */
-  formLimit: z.union([z.string(), z.number()]).optional().default('56kb'),
+  formLimit: z.union([z.string(), z.number()]).default('56kb'),
   /**
    * {String|Integer} The byte (if integer) limit of the text body, default 56kb
    */
-  textLimit: z.union([z.string(), z.number()]).optional().default('56kb'),
+  textLimit: z.union([z.string(), z.number()]).default('56kb'),
   /**
    * {String} Sets encoding for incoming form fields, default utf-8
    */
-  encoding: z.string().optional().default('utf-8'),
+  encoding: z.string().default('utf-8'),
   /**
    * {Boolean} Parse multipart bodies, default false
    */
-  multipart: z.boolean().optional().default(false),
+  multipart: z.boolean().default(false),
 
   /**
    * {Boolean} Parse urlencoded bodies, default true
    */
-  urlencoded: z.boolean().optional().default(true),
+  urlencoded: z.boolean().default(true),
 
   /**
    * {Boolean} Parse text bodies, default true
    */
-  text: z.boolean().optional().default(true),
+  text: z.boolean().default(true),
 
   /**
    * {Boolean} Parse json bodies, default true
    */
-  json: z.boolean().optional().default(true),
+  json: z.boolean().default(true),
   /**
    * Toggles co-body strict mode; if true, only parses arrays or objects, default true
    */
-  jsonStrict: z.boolean().optional().default(true),
+  jsonStrict: z.boolean().default(true),
 
   /**
      * Toggles co-body returnRawBody mode; if true,
@@ -86,7 +86,7 @@ export const KoaBodyMiddlewareOptionsSchema = z.object({
      ```
      * default false
      */
-  includeUnparsed: z.boolean().optional().default(false),
+  includeUnparsed: z.boolean().default(false),
 
   /**
    * {String[]} What HTTP methods to enable body parsing for; should be used in preference to strict mode.
@@ -99,7 +99,6 @@ export const KoaBodyMiddlewareOptionsSchema = z.object({
    */
   parsedMethods: z
     .array(HttpMethod)
-    .optional()
     .default([HttpMethodEnum.POST, HttpMethodEnum.PUT, HttpMethodEnum.PATCH]),
 });
 

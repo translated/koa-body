@@ -48,7 +48,7 @@
     "@types/koa": "^2.13.5",
     "co-body": "^6.1.0",
     "formidable": "^3.5.4",
-    "zod": "^3.19.1"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/koa-router": "^7.4.4",
@@ -64,7 +64,7 @@
     "sinon": "^14.0.1",
     "supertest": "6.3.0",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
+    "typescript": "^5.9.3"
   },
   "contributors": [
     {
